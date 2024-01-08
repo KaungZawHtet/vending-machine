@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "compile": "npx solc --abi --include-path node_modules/ --base-path . blockchain/contracts/VendingMachine.sol --output-dir blockchain/build"
   },
   "dependencies": {
     "@emotion/cache": "^11.11.0",
@@ -15,6 +16,7 @@
     "@mui/icons-material": "^5.15.3",
     "@mui/material": "^5.15.3",
     "@mui/material-nextjs": "^5.15.3",
+    "dotenv": "^16.3.1",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
