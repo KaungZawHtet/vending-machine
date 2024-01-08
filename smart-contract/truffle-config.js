@@ -42,7 +42,9 @@
  */
 
 require('dotenv').config();
-// const { MNEMONIC, PROJECT_ID } = process.env;
+const { MNEMONIC, INFURA_API_URL } = process.env;
+
+
 
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 
@@ -97,11 +99,8 @@ module.exports = {
     //   production: true    // Treats this network as if it was a public net. (default: false)
     // }
     goerli: {
-      provider: () => new HDWalletProvider({
-        privateKeys: [process.env.PRIVATE_KEY_1],
-        providerOrUrl: process.env.INFURA_API_URL,
-        numberOfAddresses: 1,
-      }),
+      networkCheckTimeout: 10000,
+      provider: () => new HDWalletProvider(MNEMONIC,INFURA_API_URL),
         network_id: 5,
         gas: 8500000,
       confirmation: 2,
@@ -118,7 +117,7 @@ module.exports = {
   // Configure your compilers
   compilers: {
     solc: {
-      version: "0.8.21",      // Fetch exact version from solc-bin (default: truffle's version)
+      version: "0.8.19",      // Fetch exact version from solc-bin (default: truffle's version)
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       // settings: {          // See the solidity docs for advice about optimization and evmVersion
       //  optimizer: {
