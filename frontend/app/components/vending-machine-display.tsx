@@ -1,5 +1,6 @@
 import { Box, Button, Grid, Paper, Stack, TextField, styled } from '@mui/material';
 import * as React from 'react';
+import vmContract from '../utils/web3';
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -10,7 +11,21 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
-export default function VendingMachineDisplay() {
+export default function VendingMachineDisplay({ myDonut }) {
+
+    const [inventory, setInventory] = React.useState<string>('');
+
+
+    React.useEffect(() => {
+        getInventory()
+    });
+
+    async function getInventory() {
+        //const temp: string = await vmContract.methods.getVendingMachineBalance().call();
+        const temp = '23';
+        setInventory(temp);
+    }
+
 
 
 
@@ -22,12 +37,12 @@ export default function VendingMachineDisplay() {
                 <Grid xs={4} style={{
                     padding :'4px'
                 }}>
-                    <Item>Inventory : 100</Item>
+                    <Item>Inventory : {inventory}</Item>
                 </Grid>
                 <Grid xs={4} style={{
                     padding: '4px'
                 }}>
-                    <Item>My Donut: 1</Item>
+                    <Item>My Donut: {myDonut}</Item>
                 </Grid>
                 <Grid xs={4} style={{
                     padding: '4px'

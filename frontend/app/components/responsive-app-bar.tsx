@@ -20,8 +20,8 @@ declare var window: any
 
 //const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-let web3;
-function ResponsiveAppBar() {
+
+function ResponsiveAppBar({ loadMetaMask }) {
 
     const [error, setError] = React.useState<null | HTMLElement>(null);
 
@@ -38,7 +38,8 @@ function ResponsiveAppBar() {
                 await window.ethereum.request({
                     method : "eth_requestAccounts"
                 })
-                web3 = new Web3(window.ethereum);
+                const temp = new Web3(window.ethereum);
+                loadMetaMask(temp)
 
             } catch (err : any) {
                 setError(err.message);
