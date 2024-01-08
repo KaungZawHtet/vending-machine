@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,12 +14,20 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import PointOfSale from '@mui/icons-material/PointOfSale';
 
+import Web3 from 'web3';
+
+declare var window: any
+
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-
+let web3;
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+    const [error, setError] = React.useState<null | HTMLElement>(null);
+
+
+
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget);
@@ -29,8 +38,35 @@ function ResponsiveAppBar() {
         setAnchorElNav(null);
     };
 
-    const handleConnectWallet = () => {
-        alert("Hello");
+
+
+    const handleConnectWallet = async () => {
+
+        if (typeof window !== "undefined" && typeof window.ethereum !== "undefined")
+        {
+
+            try {
+
+                await window.ethereum.request({
+                    method : "eth_requestAccounts"
+                })
+                web3 = new Web3(window.ethereum);
+
+            } catch (err : any) {
+                setError(err.message);
+            }
+
+
+
+        }
+        else {
+
+            console.log(error)
+        }
+
+
+
+
     };
 
 
