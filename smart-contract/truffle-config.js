@@ -98,13 +98,16 @@ module.exports = {
     //   network_id: 2111,   // This network is yours, in the cloud.
     //   production: true    // Treats this network as if it was a public net. (default: false)
     // }
-    goerli: {
+    sepolia: {
       networkCheckTimeout: 10000,
       provider: () => new HDWalletProvider(MNEMONIC,INFURA_API_URL),
-        network_id: 5,
-        gas: 8500000,
+      network_id: 11155111,
+        networkCheckTimeout: 1000000,
+      //timeoutBlocks: 200,
+      //  gas: 4000000,
+        // gasPrice: 10000000000,
       confirmation: 2,
-      timeoutBlocks: 200,
+     timeoutBlocks: 200,
         skipDryRun:true
     }
   },

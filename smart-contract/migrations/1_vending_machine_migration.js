@@ -1,4 +1,4 @@
-const vendingMachine = artifacts.require("vending-machine")
+const vendingMachine = artifacts.require("VendingMachine")
 
 module.exports = function (deployer) {
 
