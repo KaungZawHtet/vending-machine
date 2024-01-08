@@ -104,8 +104,8 @@ module.exports = {
       network_id: 11155111,
         networkCheckTimeout: 1000000,
       //timeoutBlocks: 200,
-        gas: 3000000,
-         gasPrice: 10000000000,
+      //  gas: 3000000,
+        // gasPrice: 10000000000,
       confirmation: 2,
      timeoutBlocks: 200,
         skipDryRun:true
