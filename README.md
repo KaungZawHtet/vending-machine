@@ -6,10 +6,12 @@
 
 - To understand contracts from the smart contract directory, some of `Solidity` knowledge would be necessary.
 
-- `Truffle` is used for contract deployment but currently still in progress because of gas or timeout issue for the moment.
+- `Truffle` is used for contract deployment but currently still in progress of investigating gas or timeout cases for the moment.
 
 - `Next.js` is used for frontend part but some parts r still under development.
 
 - `Infura` and `MetaMask` are used for api key and wallet.
 
 - You can mine some SepoliaETH at this [link](polia-faucet.pk910.de) for development purpose.
+
+- `Web3.js` is used to interact with ethereum blockchain.

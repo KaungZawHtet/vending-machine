@@ -23,12 +23,13 @@ export default function Home() {
   const [inputDonut, setInputDonut] = React.useState<string>('');
 
 
+  //TODO: for amount input
   function changeInput(event) {
     setInputDonut(event.target.value)
 
   }
 
-
+//TODO: consider to write for buy button
 
 
   async function loadMetaMaskData(metaMask: any) {
