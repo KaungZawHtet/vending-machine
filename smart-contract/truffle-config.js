@@ -42,7 +42,7 @@
  */
 
 require('dotenv').config();
-const { MNEMONIC, INFURA_API_URL } = process.env;
+const { MNEMONIC, ALCHEMY_URL,PRIVATE_KEY_1 } = process.env;
 
 
 
@@ -100,11 +100,11 @@ module.exports = {
     // }
     sepolia: {
       networkCheckTimeout: 10000,
-      provider: () => new HDWalletProvider(MNEMONIC,INFURA_API_URL),
+      provider: () => new HDWalletProvider([PRIVATE_KEY_1],ALCHEMY_URL),
       network_id: 11155111,
         networkCheckTimeout: 1000000,
       //timeoutBlocks: 200,
-      //  gas: 3500000,
+        gas: 3500000,
         // gasPrice: 10000000000,
       confirmation: 2,
      timeoutBlocks: 200,

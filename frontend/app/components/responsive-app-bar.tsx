@@ -15,13 +15,14 @@ import MenuItem from '@mui/material/MenuItem';
 import PointOfSale from '@mui/icons-material/PointOfSale';
 
 import Web3 from 'web3';
+import Web3Accesser from '../utils/web3';
 
 declare var window: any
 
 //const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-function ResponsiveAppBar({ loadMetaMask }) {
+function ResponsiveAppBar({ setWeb3Accessor }) {
 
     const [error, setError] = React.useState<null | HTMLElement>(null);
 
@@ -35,11 +36,9 @@ function ResponsiveAppBar({ loadMetaMask }) {
 
             try {
 
-                await window.ethereum.request({
-                    method : "eth_requestAccounts"
-                })
-                const temp = new Web3(window.ethereum);
-                loadMetaMask(temp)
+                const web3Accessor =await Web3Accesser.build(window);
+
+                setWeb3Accessor(web3Accessor);
 
             } catch (err : any) {
                 setError(err.message);

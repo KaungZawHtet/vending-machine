@@ -3,7 +3,6 @@ import Image from 'next/image'
 import styles from './page.module.css'
 import PrimarySearchAppBar from './components/responsive-app-bar'
 
-
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -13,38 +12,23 @@ import { Stack } from '@mui/material';
 import ResponsiveAppBar from './components/responsive-app-bar';
 import VendingMachineDisplay from './components/vending-machine-display';
 import vmContract from './utils/web3';
+import Web3Accesser from './utils/web3';
 
 
 
 export default function Home() {
 
-  const [metaMask, setMetaMask] = React.useState(null);
-  const [myDonut, setMyDonut] = React.useState<string>('');
-  const [inputDonut, setInputDonut] = React.useState<string>('');
+  const [web3Accessor, setWeb3Accessor] = React.useState<Web3Accesser|null>(null);
 
 
-  //TODO: for amount input
-  function changeInput(event) {
-    setInputDonut(event.target.value)
 
-  }
-
-//TODO: consider to write for buy button
-
-
-  async function loadMetaMaskData(metaMask: any) {
-    const accounts = await metaMask.eth.getAccounts()
-    const count: string = await vmContract.methods.donutBalances(accounts[0]).call()
-    setMyDonut(count)
-    setMetaMask(metaMask)
-  }
 
 
   return (
     <>
-      <ResponsiveAppBar loadMetaMask={loadMetaMaskData} />
+      <ResponsiveAppBar setWeb3Accessor={setWeb3Accessor} />
       <br/><br/>
-      <VendingMachineDisplay myDonut={myDonut}/>
+      <VendingMachineDisplay web3Accessor={web3Accessor != null ? web3Accessor : null}/>
       <br/>
 
 

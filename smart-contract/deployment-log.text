@@ -1,0 +1,32 @@
+Starting migrations...
+======================
+> Network name:    'sepolia'
+> Network id:      11155111
+> Block gas limit: 30000000 (0x1c9c380)
+
+
+1_vending_machine_migration.js
+==============================
+
+   Deploying 'VendingMachine'
+   --------------------------
+   > transaction hash:    0x6b846d820a55f0fe36dd912368dfa8d5922777884be9b5d1dba54fd31997994d
+   > Blocks: 17           Seconds: 244
+   > contract address:    0xbC855749e720a405F5257380FF8CE184e66F1fB5
+   > block number:        5055336
+   > block timestamp:     1704831060
+   > account:             0xe628AE820c1CAa15366f11353cE775302947a12E
+   > balance:             7.787363157564075142
+   > gas used:            543206 (0x849e6)
+   > gas price:           34.619632727 gwei
+   > value sent:          0 ETH
+   > total cost:          0.018805592215102762 ETH
+
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:     0.018805592215102762 ETH
+
+Summary
+=======
+> Total deployments:   1
+> Final cost:          0.018805592215102762 ETH
