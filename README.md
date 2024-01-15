@@ -8,7 +8,7 @@
 
 - `Truffle` is used for contract deployment.
 
-- `Next.js` is used for frontend part.
+- `Next.js` and `MaterialUI` is used for frontend part.
 
 - `Alchemy` and `MetaMask` are used for node provider and wallet (`Infura` was used initially but chose alchemy for better reliability )
 
